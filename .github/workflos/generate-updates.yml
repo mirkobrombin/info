@@ -6,6 +6,9 @@ on:
       - 'updates/**'
     branches:
       - main
+    
+env:
+  token: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   combine:
@@ -13,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Combine updates
         run: bash ./updates/buildUpdates.sh
