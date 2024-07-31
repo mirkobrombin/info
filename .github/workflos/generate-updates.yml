@@ -2,8 +2,6 @@ name: Generate Updates
 
 on:
   push:
-    paths:
-      - 'updates/**'
     branches:
       - main
 
@@ -19,7 +17,6 @@ jobs:
         run: bash ./updates/buildUpdates.sh
 
       - name: Commit and push
-        continue-on-error: true
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
