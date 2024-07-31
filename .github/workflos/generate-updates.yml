@@ -19,7 +19,6 @@ jobs:
         run: bash ./updates/buildUpdates.sh
 
       - name: Commit and push
-        if: github.repository == 'mirkobrombin/info' && github.ref == 'refs/heads/main'
         continue-on-error: true
         run: |
           git config user.name github-actions
