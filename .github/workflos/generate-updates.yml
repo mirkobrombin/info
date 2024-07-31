@@ -1,7 +1,11 @@
 name: Generate Updates
 
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - 'updates/**'
+    branches:
+      - main
 
 jobs:
   combine:
