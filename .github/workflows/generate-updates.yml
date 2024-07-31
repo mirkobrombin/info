@@ -3,7 +3,8 @@ name: Generate Updates
 on:
   push:
     paths:
-      - 'updates/*.json'
+      - "updates/*.json"
+  workflow_dispatch:
 
 jobs:
   combine:
@@ -11,13 +12,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Combine updates
         run: bash ./updates/buildUpdates.sh
 
       - name: Commit and push
-        if: github.repository == 'Vanilla-OS/.github' && github.ref == 'refs/heads/main'
+        if: github.repository == 'mirkobrombin/info' && github.ref == 'refs/heads/main'
         continue-on-error: true
         run: |
           git config user.name github-actions
